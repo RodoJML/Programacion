@@ -4,30 +4,58 @@
  * and open the template in the editor.
  */
 package Project1;
+import java.util.Scanner;
 
 /**
  *
- * @author rodo
+ * @author Rodolfo Meneses Leal 20200112770
  */
 public class Launcher
 {
-    public void main(String[] args)
+    Problem1 a = new Problem1();        // Instance the first object called "a"
+    // Problem2 b = new Problem2();        // Instance the second object called "b"
+    
+    public static void main(String[] args)
     {
+        Scanner read = new Scanner(System.in);
+        
         while(true)
         {
-            //Make a menu here to ask user which part of the project wants to run
+            int menu = 0;
+            Launcher x = new Launcher();
+            
+            System.out.println("=== [ Main Menu ] ===\n");
+            
+            System.out.println("Options: \n(1) Problem 1: Exchange Rate Fixed\n(2) Problem 2: Exchange Rate - Open");
+            System.out.println("\nPlease select the problem of the project you want to run: ");
+            menu = read.nextInt();
+            
+            switch(menu)
+            {
+                case 1:
+                {
+                    x.problem1();
+                    break;
+                }  
+            }
         }
     }
     
     public void problem1()
     {
+        Scanner read = new Scanner(System.in);
         
+        System.out.println("=== [  Exchange Rate Application  ] ===");
+        System.out.println("=== [ 1USD: 500CRC | 1EUR: 765CRC ] === \n");
         
+        System.out.println("Please select currency from (1)USD (2)EURO (3)CRC: ");
+        a.setCurrencyFrom(read.nextInt());
+        
+        System.out.println("Please select currency to   (1)USD (2)EURO (3)CRC: ");
+        a.setCurrencyTo(read.nextInt());
+        
+        System.out.println("Please enter the total amount you want to convert: ");
+        a.setUserUnits(read.nextInt());
     }
     
-    public void problem2()
-    {
-        
-        
-    }
 }
