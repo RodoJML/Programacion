@@ -31,6 +31,12 @@ public class Problem1
     {
         this.userUnits = userUnits;
     }
+
+    public float getCurrencyTo() 
+    {
+        return currencyTo;
+    }
+    
     
     public float conversion()
     {
@@ -45,19 +51,19 @@ public class Problem1
             conversion = (userUnits * 0.153f) + userUnits;
         
         if(currencyFrom == 1 && currencyTo == 3)
-            conversion = userUnits / dollar ;
+            conversion = userUnits * dollar ;
         
         if(currencyFrom == 2 && currencyTo == 1)
             conversion = userUnits / 1.53f ;
         
         if(currencyFrom == 2 && currencyTo == 3)
-            conversion = userUnits / euro ;
+            conversion = userUnits * euro ;
         
         if(currencyFrom == 3 && currencyTo == 1)
-            conversion = 500 / userUnits;
+            conversion = userUnits / 500;
             
         if(currencyFrom == 3 && currencyTo == 2)
-            conversion = 765 / userUnits;
+            conversion = userUnits / 765;
         
         return conversion;
     }
