@@ -12,18 +12,21 @@ public class Problem1
 {
     private float dollar;             // 500
     private float euro;               // 765
-    private float colon;              // 1
-    private float userUnits;          // User defines
-    private float currencyFrom;       // Source currency
-    private float currencyTo;         // Outcome currency
+    private double userUnits;          // User defines
+    private byte currencyFrom;       // Source currency
+    private byte currencyTo;         // Outcome currency
 
-    public void setCurrencyFrom(float currencyFrom)
+    public void setCurrencyFrom(byte currencyFrom)
     {
+        if(currencyFrom < 1 || currencyFrom > 3)
+            throw new IllegalArgumentException("This is not a currency option");
         this.currencyFrom = currencyFrom;
     }
 
-    public void setCurrencyTo(float currencyTo)
+    public void setCurrencyTo(byte currencyTo)
     {
+        if(currencyFrom < 1 || currencyFrom > 3)
+            throw new IllegalArgumentException("This is not a currency option");
         this.currencyTo = currencyTo;
     }
    
@@ -38,32 +41,32 @@ public class Problem1
     }
     
     
-    public float conversion()
+    public double conversion()
     {
-        dollar = 500;
-        euro = 765;
-        float conversion = 0f;
+        dollar = 500f;
+        euro = 765f;
+        double conversion = 0d;
         
         if(currencyFrom == currencyTo)
             throw new Error("Incorrect selection same currency selected, no need to convert values!");
         
         if(currencyFrom == 1 && currencyTo == 2)
-            conversion = (userUnits * 0.153f) + userUnits;
+            conversion = (userUnits * 0.153d) + userUnits;
         
         if(currencyFrom == 1 && currencyTo == 3)
-            conversion = userUnits * dollar ;
+            conversion = userUnits * dollar;
         
         if(currencyFrom == 2 && currencyTo == 1)
-            conversion = userUnits / 1.53f ;
+            conversion = userUnits / 1.53d;
         
         if(currencyFrom == 2 && currencyTo == 3)
-            conversion = userUnits * euro ;
+            conversion = userUnits * euro;
         
         if(currencyFrom == 3 && currencyTo == 1)
-            conversion = userUnits / 500;
+            conversion = userUnits / 500d;
             
         if(currencyFrom == 3 && currencyTo == 2)
-            conversion = userUnits / 765;
+            conversion = userUnits / 765d;
         
         return conversion;
     }
