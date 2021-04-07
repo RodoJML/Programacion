@@ -10,9 +10,9 @@ package Project1;
  */
 public class Problem1 
 {
-    private float dollar;             // 500
-    private float euro;               // 765
-    private double userUnits;          // User defines
+    private short dollar;            // 500
+    private short euro;              // 765
+    private float userUnits;         // User defines
     private byte currencyFrom;       // Source currency
     private byte currencyTo;         // Outcome currency
 
@@ -41,32 +41,32 @@ public class Problem1
     }
     
     
-    public double conversion()
+    public float conversion()
     {
-        dollar = 500f;
-        euro = 765f;
-        double conversion = 0d;
+        dollar = 500;
+        euro = 765;
+        float conversion = 0;
         
         if(currencyFrom == currencyTo)
             throw new Error("Incorrect selection same currency selected, no need to convert values!");
         
         if(currencyFrom == 1 && currencyTo == 2)
-            conversion = (userUnits * 0.153d) + userUnits;
+            conversion = (userUnits * 0.153f) + userUnits;
         
         if(currencyFrom == 1 && currencyTo == 3)
             conversion = userUnits * dollar;
         
         if(currencyFrom == 2 && currencyTo == 1)
-            conversion = userUnits / 1.53d;
+            conversion = userUnits / 1.53f;
         
         if(currencyFrom == 2 && currencyTo == 3)
             conversion = userUnits * euro;
         
         if(currencyFrom == 3 && currencyTo == 1)
-            conversion = userUnits / 500d;
+            conversion = userUnits / dollar;
             
         if(currencyFrom == 3 && currencyTo == 2)
-            conversion = userUnits / 765d;
+            conversion = userUnits / euro;
         
         return conversion;
     }

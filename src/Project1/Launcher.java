@@ -29,22 +29,24 @@ public class Launcher
             System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency");
             System.out.print("Please select the problem of the project you want to run: ");
             menu = read.nextInt();
-            System.out.println("____________________________________________________________\n");
+            System.out.print("\n");
+            System.out.println("_________________________________________________________________\n");
             
             switch(menu)
             {
                 case 1:
                     x.problemApp1();
                     break;
-                case 2:    
-                
+                case 2:
+                    x.problemApp2();
+                    break;
             }
         }
     }
     
     public void problemApp1()           // Executes the first option of main menu.
     {
-        char currency = 0;
+        char currency = '?';
         
         System.out.println("=== [ Exchange Rate Application ] ===");
         System.out.println("    1USD: 500CRC | 1EUR: 765CRC    \n");
@@ -54,7 +56,7 @@ public class Launcher
         System.out.print("To   (1)USD (2)EURO (3)CRC: ");
         a.setCurrencyTo(read.nextByte());
         System.out.print("Please enter the total amount you want to convert: ");
-        a.setUserUnits(read.nextInt());
+        a.setUserUnits(read.nextFloat());
         
         switch((int)a.getCurrencyTo())  //Casting applied here
         {
@@ -68,19 +70,59 @@ public class Launcher
                 currency = '₡';
                 break;
         }
-        System.out.println("Your exchange rate is: " + currency + a.conversion() + "\n");
-        System.out.println("____________________________________________________________\n");
+        System.out.print("Your exchange rate is: " + currency);
+        System.out.printf("%f", a.conversion());
+        System.out.println("\n");
+        System.out.println("_________________________________________________________________\n");
     }
     
     public void problemApp2()
     {
+        char currency = '?';
+        
         System.out.println("=== [ Exchange Rate Application ] ===");
-        System.out.println("For this application user defines the name for up to 2 currencies, value for each currency must be expressed in Costarican colon\n");
-        System.out.println("Please name your new currency 1: ");
-        b.setCurrency0(read.next());
-        System.out.println("Please name your new currency 2: ");
-        b.setCurrency1(read.next());
+        System.out.println("*For this application user can define up to 2 currencies.");
+        System.out.println("*Value for each currency must be expressed in Costarican colon.\n");
         
+        System.out.println("Currency 1");
+        System.out.print("Please set name : ");
+        b.setCurrency0name(read.next());
+        System.out.print("Please set value: ");
+        b.setCurrency0value(read.nextFloat());
+        System.out.print("\n");
+        System.out.println("Currency 2");
+        System.out.print("Please set name : ");
+        b.setCurrency1name(read.next());
+        System.out.print("Please set value: ");
+        b.setCurrency1value(read.nextFloat());
+        System.out.print("\n");
         
+        System.out.println("Starting conversion...");
+        System.out.println("Please select currency: ");
+        System.out.print("From (1)" + b.getCurrency0name() + " (2)" + b.getCurrency1name() + " (3)CRC: ");
+        b.setCurrencyFrom(read.nextByte());
+        System.out.print("To   (1)" + b.getCurrency0name() + " (2)" + b.getCurrency1name() + " (3)CRC: ");
+        b.setCurrencyTo(read.nextByte());
+        
+        System.out.print("Please enter the total amount you want to convert: ");
+        b.setUserUnits(read.nextFloat());
+        
+        switch((int)b.getCurrencyTo())  //Casting applied here
+        {
+            case 1:
+                currency = b.getCurrency0name().charAt(0);
+                break;
+            case 2:
+                currency = b.getCurrency1name().charAt(0);
+                break;
+            case 3:
+                currency = '₡';
+                break;
+        }
+        
+        System.out.print("Your exchange rate is: " + currency);
+        System.out.printf("%f", b.conversion());
+        System.out.println("\n");
+        System.out.println("_________________________________________________________________\n");
     }
 }
