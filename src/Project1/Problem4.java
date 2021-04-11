@@ -13,43 +13,62 @@ package Project1;
 public class Problem4 
 {
     private int arrayUnsorted;
-    private int arraySorted;
     private int arrayLenght;
-    int[] array = new int[arrayLenght];
+    private int[] array = new int[arrayLenght];
+
+    public void setArrayUnsorted(int arrayUnsorted) 
+    {
+        this.arrayUnsorted = arrayUnsorted;
+    }
+   
+    public void sort()
+    {
+        converToArray();
+        System.out.println(array);
+    }
     
-    public void converToArray()
+    
+    private void converToArray()                                    // Hidding as seen in class since user does not need to know about this
     {
         int indexStart;
         int indexMiddle;
         int indexEnd;
         int arrayUnsorted0 = this.arrayUnsorted;
-        int arrayUnsorted1 = this.arrayUnsorted;
+        int arrayUnsorted1 = arrayUnsorted0;
         
         for(arrayLenght = 0; arrayUnsorted0 != 0; arrayLenght++)    // Diving any number by 10, multiple times until reaching 0
-            arrayUnsorted0 = arrayUnsorted0 / 10;                   // will provide you the amount of digits on that string of number. 
+            arrayUnsorted0 = (arrayUnsorted0 / 10);                   // will provide you the amount of digits on that string of number. 
      
+        int[] array = new int[arrayLenght];
+        
         for(int index = 0; arrayUnsorted1 != 0; index++)
         {
-            array[index] = arrayUnsorted1 % 10;
-            arrayUnsorted1 = arrayUnsorted1 / 10;
+            array[index] = (arrayUnsorted1 % 10);
+            arrayUnsorted1 = (arrayUnsorted1 / 10);
         }
         
+        this.array = array;
+        
         indexStart = 0;
-        indexEnd = arrayLenght - 1;
+        indexEnd = arrayLenght;
+        
+        mergeSort(array, indexStart, indexEnd);                     // Initiate the merge Sort!                      
     }
-    
-    public void mergeSort(int array[], int start, int end)
+        
+    private void mergeSort(int array[], int start, int end)
     {
         if(start >= end)   // <--------------------------------     // Any recursive function must have a base case, otherwise it'll run forever
             return;                                                 // If at some point the start of the array is greater or iqual than its end, stop!
         
-        int middle =  start + end / 2;                              // Define the middle point index of the handed array.
+        int middle =  (start + end) / 2;                              // Define the middle point index of the handed array.
         
         mergeSort(array, start, middle);
         mergeSort(array, middle + 1, end);
+        
+        merge(array, start, end);
     }
     
-    public void merge(int array[], int start, int end)
+    private void merge(int array[], int start, int end)
     {
         int[] temporaryArray = new int[arrayLenght];
                 
@@ -70,13 +89,12 @@ public class Problem4
         while(indexStart0 <= indexMiddle)
             temporaryArray[indexNew++] = array[indexStart0++];
         
-        while(indexStart1 <= indexMiddle)
+        while(indexStart1 <= end)
             temporaryArray[indexNew++] = array[indexStart1++];
         
-        
+        for(int i = start; i <= end; i++)                           // Passing the temporary sorted array to the main array.
+        {                                                           
+            temporaryArray[i] = array[i]; 
+        }
     }
-            
-  
-    
-    
 }

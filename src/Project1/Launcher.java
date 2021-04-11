@@ -15,18 +15,20 @@ public class Launcher
     Scanner read = new Scanner(System.in);
     Problem1 a = new Problem1();        // Instance the first object called "a"
     Problem2 b = new Problem2();        // Instance the second object called "b"
+    Problem4 d = new Problem4();        // Instance the fourth object called "d"
     
     public static void main(String[] args)
     {
         Scanner read = new Scanner(System.in);
-        
+       
         while(true)
         {
             int menu = 0;
             Launcher x = new Launcher();
             
             System.out.println("=== [ Main Menu ] ===\n");
-            System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency");
+            System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency"
+                               + "\n(4) Problem 4: Binary Search");
             System.out.print("Please select the problem of the project you want to run: ");
             menu = read.nextInt();
             System.out.print("\n");
@@ -40,6 +42,8 @@ public class Launcher
                 case 2:
                     x.problemApp2();
                     break;
+                case 4:
+                    x.problemApp4();
             }
         }
     }
@@ -124,5 +128,21 @@ public class Launcher
         System.out.printf("%f", b.conversion());
         System.out.println("\n");
         System.out.println("_________________________________________________________________\n");
+    }
+    
+    public void problemApp4()
+    {
+        Scanner read = new Scanner(System.in);
+        
+        System.out.println("=== [ Binary Search ] ===");
+        System.out.println("On this application the user can enter any string of numbers up\n"
+                            + "to 10 digits, afterwards, the user can lookup for any number\n"
+                            + "to validate if it's included within the original array\n\n");
+        
+        System.out.print("Please enter a string of numbers: ");
+        d.setArrayUnsorted(read.nextInt());
+        
+        d.sort();
+
     }
 }
