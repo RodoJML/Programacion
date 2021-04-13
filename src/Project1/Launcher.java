@@ -5,6 +5,7 @@
  */
 package Project1;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
@@ -137,12 +138,19 @@ public class Launcher
         System.out.println("=== [ Binary Search ] ===");
         System.out.println("On this application the user can enter any string of numbers up\n"
                             + "to 10 digits, afterwards, the user can lookup for any number\n"
-                            + "to validate if it's included within the original array\n\n");
+                            + "to validate if it's included within the original array\n");
         
         System.out.print("Please enter a string of numbers: ");
         d.setArrayUnsorted(read.nextInt());
         
-        d.sort();
-
+        System.out.print("Please enter a number to lookup: ");
+        d.setTargetNumber(read.nextInt());
+        System.out.println("\n");
+        
+        d.binarySearch(d.sort(), d.getTargetNumber(), 0, d.getArrayLenght());
+        
+        System.out.print("By the way here's your array sorted: " + Arrays.toString(d.sort()));
+        System.out.println("\n");
+        System.out.println("_________________________________________________________________\n");
     }
 }

@@ -14,17 +14,38 @@ public class Problem4
 {
     private int arrayUnsorted;
     private int arrayLenght;
+    private int targetNumber;                                       // This is the number that the user wants to lookup in the now sorted array
     private int[] array = new int[arrayLenght];
+    
 
     public void setArrayUnsorted(int arrayUnsorted) 
     {
+        if(arrayUnsorted > 2147483647)
+            throw new IllegalArgumentException("String provided exceeds the limit, try again");
+        
         this.arrayUnsorted = arrayUnsorted;
     }
-   
-    public void sort()
+
+    public void setTargetNumber(int targetNumber) 
+    {
+        this.targetNumber = targetNumber;
+    }
+
+    public int getTargetNumber()
+    {
+        return targetNumber;
+    }
+
+    public int getArrayLenght()
+    {
+        return arrayLenght;
+    }
+    
+    
+    public int[] sort()
     {
         converToArray();
-        System.out.println(array);
+        return array;
     }
     
     
@@ -37,7 +58,7 @@ public class Problem4
         int arrayUnsorted1 = arrayUnsorted0;
         
         for(arrayLenght = 0; arrayUnsorted0 != 0; arrayLenght++)    // Diving any number by 10, multiple times until reaching 0
-            arrayUnsorted0 = (arrayUnsorted0 / 10);                   // will provide you the amount of digits on that string of number. 
+            arrayUnsorted0 = (arrayUnsorted0 / 10);                 // will provide you the amount of digits on that string of number. 
      
         int[] array = new int[arrayLenght];
         
@@ -50,7 +71,7 @@ public class Problem4
         this.array = array;
         
         indexStart = 0;
-        indexEnd = arrayLenght;
+        indexEnd = arrayLenght - 1;
         
         mergeSort(array, indexStart, indexEnd);                     // Initiate the merge Sort!                      
     }
@@ -60,7 +81,7 @@ public class Problem4
         if(start >= end)   // <--------------------------------     // Any recursive function must have a base case, otherwise it'll run forever
             return;                                                 // If at some point the start of the array is greater or iqual than its end, stop!
         
-        int middle =  (start + end) / 2;                              // Define the middle point index of the handed array.
+        int middle =  (start + end) / 2;                            // Define the middle point index of the handed array.
         
         mergeSort(array, start, middle);
         mergeSort(array, middle + 1, end);
@@ -75,7 +96,7 @@ public class Problem4
         int indexMiddle = (start + end) / 2;
         int indexStart0 = start;                                    // Points at the first index of the array
         int indexStart1 = indexMiddle + 1;                          // Points at the first index of the second half of the array
-        int indexNew = start;                                       // This will be used for the new index of the new array 
+        int indexNew    = start;                                    // This will be used for the new index of the new array 
         
         
         while(indexStart0 <= indexMiddle && indexStart1 <= end)
@@ -92,9 +113,37 @@ public class Problem4
         while(indexStart1 <= end)
             temporaryArray[indexNew++] = array[indexStart1++];
         
-        for(int i = start; i <= end; i++)                           // Passing the temporary sorted array to the main array.
-        {                                                           
-            temporaryArray[i] = array[i]; 
+        for(int i = start; i<= end; i++)
+        {
+            array[i] = temporaryArray[i];
         }
+        this.array = array; 
+    }
+    
+    public void binarySearch(int sortedArray[], int target, int start, int end)
+    {
+        int middle = (start + end) / 2;
+        
+        if(start > end || end < start)
+        {
+            System.out.println("Result: Not Found! :( - Number " + target + " is not on the original array.");
+            return;
+        }
+        
+        if(sortedArray[middle] == target)
+        {
+            System.out.println("Result: Found! :) - Number " + target + " is on the original array.");
+        }
+        else
+            if(sortedArray[middle] < target)
+            {
+                start = middle + 1;
+                binarySearch(sortedArray, target, start, end);
+            }
+            if(sortedArray[middle] > target)
+            {
+                end = middle - 1;
+                binarySearch(sortedArray, target, start, end);
+            }
     }
 }
