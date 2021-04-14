@@ -5,52 +5,46 @@
  */
 package Project1;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Rodolfo Meneses Leal 20200112770
  */
-
-public class Problem4 
+public class Problem5
 {
-    private long arrayUnsorted;
+    long arrayUnsorted0; 
+    long arrayUnsorted1;
     private int arrayLenght;
-    private int targetNumber;                                       // This is the number that the user wants to lookup in the now sorted array
     private long[] array = new long[arrayLenght];
     
-
-    public void setArrayUnsorted(long arrayUnsorted) 
-    {
-        this.arrayUnsorted = arrayUnsorted;
-    }
-
-    public void setTargetNumber(int targetNumber) 
-    {
-        this.targetNumber = targetNumber;
-    }
-
-    public int getTargetNumber()
-    {
-        return targetNumber;
-    }
-
-    public int getArrayLenght()
-    {
-        return arrayLenght;
-    }
+    String longString0 = Long.toString(arrayUnsorted0);
+    String longString1 = Long.toString(arrayUnsorted1);
+    String longString2 = longString0 + longString1;
     
-    
-    public long[] sort()
+    long arrayUnsorted2 = Long.valueOf(longString2).longValue();
+
+    public void setUnsortedArray0(long unsortedArray0)
     {
-        converToArray();
+        this.arrayUnsorted0 = arrayUnsorted0;
+    }
+
+    public void setUnsortedArray1(long unsortedArray1)
+    {
+        this.arrayUnsorted1 = arrayUnsorted1;
+    }
+
+    public long[] getArray()
+    {
         return array;
     }
     
     
-    private void converToArray()                                    // Hidding as seen in class since user does not need to know about this
+    public void converToArray()                                    // Hidding as seen in class since user does not need to know about this
     {
         int indexStart;
         int indexEnd;
-        long arrayUnsorted0 = this.arrayUnsorted;
+        long arrayUnsorted0 = this.arrayUnsorted2;
         long arrayUnsorted1 = arrayUnsorted0;
         
         for(arrayLenght = 0; arrayUnsorted0 != 0; arrayLenght++)    // Diving any number by 10, multiple times until reaching 0
@@ -113,33 +107,8 @@ public class Problem4
         {
             array[i] = temporaryArray[i];
         }
-        this.array = array; 
+        this.array = array;
+        
     }
     
-    public void binarySearch(long sortedArray[], int target, int start, int end)
-    {
-        int middle = (start + end) / 2;
-        
-        if(start > end || end < start)
-        {
-            System.out.println("Result: Not Found! :( - Number " + target + " is not on the original array.");
-            return;
-        }
-        
-        if(sortedArray[middle] == target)
-        {
-            System.out.println("Result: Found! :) - Number " + target + " is on the original array.");
-        }
-        else
-            if(sortedArray[middle] < target)
-            {
-                start = middle + 1;
-                binarySearch(sortedArray, target, start, end);
-            }
-            if(sortedArray[middle] > target)
-            {
-                end = middle - 1;
-                binarySearch(sortedArray, target, start, end);
-            }
-    }
 }

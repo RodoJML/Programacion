@@ -17,6 +17,8 @@ public class Launcher
     Problem1 a = new Problem1();        // Instance the first object called "a"
     Problem2 b = new Problem2();        // Instance the second object called "b"
     Problem4 d = new Problem4();        // Instance the fourth object called "d"
+    Problem5 e = new Problem5();
+    
     
     public static void main(String[] args)
     {
@@ -27,13 +29,18 @@ public class Launcher
             int menu = 0;
             Launcher x = new Launcher();
             
-            System.out.println("=== [ Main Menu ] ===\n");
+            System.out.println("=== [ Main Menu ] ===");
+            System.out.println("Universidad Latina de Costa Rica");
+            System.out.println("BIS03 Programación I para TI, Final Project I");
+            System.out.println("Professor: Carlos Mendez Rodriguez || Student: Rodolfo Javier Meneses Leal");
+            System.out.println("Elaborated on april 2021\n");
+            
             System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency"
-                               + "\n(4) Problem 4: Binary Search");
-            System.out.print("Please select the problem of the project you want to run: ");
+                               + "\n(4) Problem 4: Binary Search\n(5) Problem 5: Merge");
+            System.out.print("\nPlease select the problem of the project you want to run: ");
             menu = read.nextInt();
             System.out.print("\n");
-            System.out.println("_________________________________________________________________\n");
+            System.out.println("___________________________________________________________________________\n");
             
             switch(menu)
             {
@@ -45,6 +52,10 @@ public class Launcher
                     break;
                 case 4:
                     x.problemApp4();
+                    break;
+                case 5:
+                    x.problemApp5();
+                    break;
             }
         }
     }
@@ -78,7 +89,7 @@ public class Launcher
         System.out.print("Your exchange rate is: " + currency);
         System.out.printf("%f", a.conversion());
         System.out.println("\n");
-        System.out.println("_________________________________________________________________\n");
+        System.out.println("___________________________________________________________________________\n");
     }
     
     public void problemApp2()
@@ -128,29 +139,44 @@ public class Launcher
         System.out.print("Your exchange rate is: " + currency);
         System.out.printf("%f", b.conversion());
         System.out.println("\n");
-        System.out.println("_________________________________________________________________\n");
+        System.out.println("___________________________________________________________________________\n");
     }
     
     public void problemApp4()
-    {
-        Scanner read = new Scanner(System.in);
-        
+    {        
         System.out.println("=== [ Binary Search ] ===");
         System.out.println("On this application the user can enter any string of numbers up\n"
-                            + "to 10 digits, afterwards, the user can lookup for any number\n"
-                            + "to validate if it's included within the original array\n");
+                            + "to 18 digits, afterwards, the user can lookup for any number\n"
+                            + "to validate if it's included within the original array.\n");
         
         System.out.print("Please enter a string of numbers: ");
-        d.setArrayUnsorted(read.nextInt());
+        d.setArrayUnsorted(read.nextLong());
         
         System.out.print("Please enter a number to lookup: ");
         d.setTargetNumber(read.nextInt());
-        System.out.println("\n");
+        System.out.print("\n");
         
         d.binarySearch(d.sort(), d.getTargetNumber(), 0, d.getArrayLenght());
         
         System.out.print("By the way here's your array sorted: " + Arrays.toString(d.sort()));
         System.out.println("\n");
-        System.out.println("_________________________________________________________________\n");
+        System.out.println("___________________________________________________________________________\n");
+    }
+    
+    public void problemApp5()
+    {
+        System.out.println("=== [ Merge ] ===");
+        System.out.println("On this application the user can enter 2 separate strings of numbers\n"
+                            + "up to 9 digits each, afterwards the application will merge and sort\n"
+                            + "the two strings into one.\n");
+        
+        System.out.print("(1) Please enter a string of numbers: ");
+        e.setUnsortedArray0(read.nextLong());
+        
+        System.out.print("(2) Please enter a string of numbers: ");
+        e.setUnsortedArray1(read.nextLong());
+        
+        e.converToArray();
+
     }
 }
