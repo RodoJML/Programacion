@@ -32,8 +32,7 @@ public class Launcher
             System.out.println("=== [ Main Menu ] ===");
             System.out.println("Universidad Latina de Costa Rica");
             System.out.println("BIS03 Programación I para TI, Final Project I");
-            System.out.println("Professor: Carlos Mendez Rodriguez || Student: Rodolfo Javier Meneses Leal");
-            System.out.println("Elaborated on april 2021\n");
+            System.out.println("Professor: Carlos Mendez Rodriguez || Student: Rodolfo Javier Meneses Leal\n");
             
             System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency"
                                + "\n(4) Problem 4: Binary Search\n(5) Problem 5: Merge");
@@ -156,9 +155,9 @@ public class Launcher
         d.setTargetNumber(read.nextInt());
         System.out.print("\n");
         
-        d.binarySearch(d.sort(), d.getTargetNumber(), 0, d.getArrayLenght());
+        d.binarySearch(d.sort(d.getArrayUnsorted()), d.getTargetNumber(), 0, d.getArrayLenght());
         
-        System.out.print("By the way here's your array sorted: " + Arrays.toString(d.sort()));
+        System.out.print("By the way here's your array sorted " + Arrays.toString(d.sort(d.getArrayUnsorted())));
         System.out.println("\n");
         System.out.println("___________________________________________________________________________\n");
     }
@@ -169,14 +168,12 @@ public class Launcher
         System.out.println("On this application the user can enter 2 separate strings of numbers\n"
                             + "up to 9 digits each, afterwards the application will merge and sort\n"
                             + "the two strings into one.\n");
+        e.setValues();
         
-        System.out.print("(1) Please enter a string of numbers: ");
-        e.setUnsortedArray0(read.nextLong());
-        
-        System.out.print("(2) Please enter a string of numbers: ");
-        e.setUnsortedArray1(read.nextLong());
-        
-        e.converToArray();
-
+        System.out.println("\nHere are your 2 strings merged and sorted");
+        System.out.print("Result: ");
+        e.mergeAndSort(e.getUnsortedString());
+        System.out.println("\n");
+        System.out.println("___________________________________________________________________________\n");
     }
 }

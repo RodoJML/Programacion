@@ -37,20 +37,24 @@ public class Problem4
     {
         return arrayLenght;
     }
-    
-    
-    public long[] sort()
+
+    public long getArrayUnsorted()
     {
-        converToArray();
+        return arrayUnsorted;
+    }
+    
+    public long[] sort(long arrayUnsorted)
+    {
+        converToArray(arrayUnsorted);
         return array;
     }
     
     
-    private void converToArray()                                    // Hidding as seen in class since user does not need to know about this
+    private void converToArray(long arrayUnsorted)                                    // Hidding as seen in class since user does not need to know about this
     {
         int indexStart;
         int indexEnd;
-        long arrayUnsorted0 = this.arrayUnsorted;
+        long arrayUnsorted0 = arrayUnsorted;
         long arrayUnsorted1 = arrayUnsorted0;
         
         for(arrayLenght = 0; arrayUnsorted0 != 0; arrayLenght++)    // Diving any number by 10, multiple times until reaching 0
@@ -113,7 +117,7 @@ public class Problem4
         {
             array[i] = temporaryArray[i];
         }
-        this.array = array; 
+        this.array = array;
     }
     
     public void binarySearch(long sortedArray[], int target, int start, int end)
@@ -136,7 +140,8 @@ public class Problem4
                 start = middle + 1;
                 binarySearch(sortedArray, target, start, end);
             }
-            if(sortedArray[middle] > target)
+            
+        if(sortedArray[middle] > target)
             {
                 end = middle - 1;
                 binarySearch(sortedArray, target, start, end);
