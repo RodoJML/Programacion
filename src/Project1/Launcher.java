@@ -6,6 +6,7 @@
 package Project1;
 import java.util.Scanner;
 import java.util.Arrays;
+import javax.swing.*;
 
 /**
  *
@@ -13,11 +14,13 @@ import java.util.Arrays;
  */
 public class Launcher
 {
-    Scanner read = new Scanner(System.in);
-    Problem1 a = new Problem1();        // Instance the first object called "a"
-    Problem2 b = new Problem2();        // Instance the second object called "b"
-    Problem4 d = new Problem4();        // Instance the fourth object called "d"
-    Problem5 e = new Problem5();
+    Scanner     read = new Scanner(System.in);
+    Problem1    a    = new Problem1();        // Instance the first object called "a"
+    Problem2    b    = new Problem2();        // Instance the second object called "b"
+    Rectangle   c0   = new Rectangle();
+    Oval        c1   = new Oval();
+    Problem4    d    = new Problem4();        // Instance the fourth object called "d"
+    Problem5    e    = new Problem5();
     
     
     public static void main(String[] args)
@@ -35,7 +38,7 @@ public class Launcher
             System.out.println("Professor: Carlos Mendez Rodriguez || Student: Rodolfo Javier Meneses Leal\n");
             
             System.out.println("Options: \n(1) Problem 1: Exchange Rate - Fixed currency\n(2) Problem 2: Exchange Rate - User defines currency"
-                               + "\n(4) Problem 4: Binary Search\n(5) Problem 5: Merge");
+                               + "\n(3) Problem 3: Draw Figures\n(4) Problem 4: Binary Search\n(5) Problem 5: Merge");
             System.out.print("\nPlease select the problem of the project you want to run: ");
             menu = read.nextInt();
             System.out.print("\n");
@@ -48,6 +51,9 @@ public class Launcher
                     break;
                 case 2:
                     x.problemApp2();
+                    break;
+                case 3:
+                    x.problemApp3();
                     break;
                 case 4:
                     x.problemApp4();
@@ -175,5 +181,90 @@ public class Launcher
         e.mergeAndSort(e.getUnsortedString());
         System.out.println("\n");
         System.out.println("___________________________________________________________________________\n");
+    }
+    
+    public void problemApp3()
+    {
+        int option;
+        
+        JFrame window = new JFrame("Window for Drawings - BIS03 Final Project I Ulatina");
+   
+        System.out.println("=== [ Drawing ] ===");
+        System.out.println("Draw rectangles or ovals on screen, with user defined with\n"
+                            + "size and position on screen, between (640x480) pixels\n");
+        
+        System.out.println("Options:");
+        System.out.println("(1) Rectangle");
+        System.out.println("(2) Oval");
+        
+        System.out.print("\nWhat figure you want to draw?: ");
+        option = read.nextInt();
+        
+        switch(option)
+        {
+            case 1: 
+            {
+                int otherDrawing = 1;
+                while(otherDrawing == 1)
+                {
+                System.out.print("(X) Horizontal position: ");
+                c0.setPositionX(read.nextInt());
+        
+                System.out.print("(Y) Vertical position: ");
+                c0.setPositionY(read.nextInt());
+        
+                System.out.print("(X) Width: ");
+                c0.setSizeX(read.nextInt());
+        
+                System.out.print("(Y) Height: ");
+                c0.setSizeY(read.nextInt());
+        
+                window.add(c0);
+                window.setSize(640, 480);
+                window.setVisible(true);
+                
+                System.out.print("\nDo you want to draw another rectangle? (1) Yes (0) No: ");
+                otherDrawing = read.nextInt();
+                System.out.print("\n");
+                window.setVisible(false);
+                if (otherDrawing == 0)
+                    System.out.println("___________________________________________________________________________\n");
+                }
+                break;
+            }
+            
+            case 2:
+            {
+                int otherDrawing = 1;
+                while(otherDrawing == 1)
+                {
+                System.out.print("(X) Horizontal position: ");
+                c1.setPositionX(read.nextInt());
+        
+                System.out.print("(Y) Vertical position: ");
+                c1.setPositionY(read.nextInt());
+        
+                System.out.print("(X) Width: ");
+                c1.setSizeX(read.nextInt());
+        
+                System.out.print("(Y) Height: ");
+                c1.setSizeY(read.nextInt());
+        
+                window.add(c1);
+                window.setSize(640, 480);
+                window.setVisible(true);
+                
+                System.out.print("\nDo you want to draw another oval? (1) Yes (0) No: ");
+                otherDrawing = read.nextInt();
+                System.out.print("\n");
+                window.setVisible(false);
+                if (otherDrawing == 0)
+                    System.out.println("___________________________________________________________________________\n");
+                }
+                break;
+            }
+            
+        }
+
     }
 }
