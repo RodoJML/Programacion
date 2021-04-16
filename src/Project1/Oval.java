@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author rodo
+ * @author Rodolfo Meneses Leal 20200112770
  */
 public class Oval extends JPanel
 {
