@@ -24,59 +24,75 @@ public class Request
         
     }
 
-    public int getOrderID() {
+    public int getOrderID() 
+    {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(int orderID) 
+    {
         this.orderID = orderID;
     }
+    
+    // Methods get and set
 
-    public String getDateCreated() {
+    public String getDateCreated() 
+    {
         return dateCreated;
     }
 
-    public void setDateCreated(String dateCreated) {
+    public void setDateCreated(String dateCreated) 
+    {
         this.dateCreated = dateCreated;
     }
 
-    public String getDateShipped() {
+    public String getDateShipped() 
+    {
         return dateShipped;
     }
 
-    public void setDateShipped(String dateShipped) {
+    public void setDateShipped(String dateShipped) 
+    {
         this.dateShipped = dateShipped;
     }
 
-    public String getCustomerName() {
+    public String getCustomerName() 
+    {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
+    public void setCustomerName(String customerName) 
+    {
         this.customerName = customerName;
     }
 
-    public String getCustomerID() {
+    public String getCustomerID() 
+    {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(String customerID) 
+    {
         this.customerID = customerID;
     }
 
-    public String getStatus() {
+    public String getStatus() 
+    {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(String status) 
+    {
         this.status = status;
     }
 
-    public String getShippingID() {
+    public String getShippingID() 
+    {
         return shippingID;
     }
 
-    public void setShippingID(String shippingID) {
+    public void setShippingID(String shippingID) 
+    {
         this.shippingID = shippingID;
     }
     

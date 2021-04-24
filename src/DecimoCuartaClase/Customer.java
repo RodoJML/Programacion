@@ -18,9 +18,15 @@ public class Customer extends User
     private String shippingInfo;
     private float accountBalance;
     
+    private Request[] pedidos;
+    
     public Customer(String customerName, String address, String email, String creditCardInfo,  String shippingInfo, float accountBalance)
     {
+        this.customerName = customerName;
+        this.address = address;
         
+        
+        pedidos = new Request[100];
     } 
     public void register()
     {
