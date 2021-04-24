@@ -18,6 +18,18 @@ public class Request
     private String customerID;
     private String status;
     private String shippingID;
+
+    public Request(int orderID, String dateCreated, String dateShipped, String customerName, String customerID, String status, String shippingID)
+    {
+        this.orderID = orderID;
+        this.dateCreated = dateCreated;
+        this.dateShipped = dateShipped;
+        this.customerName = customerName;
+        this.customerID = customerID;
+        this.status = status;
+        this.shippingID = shippingID;
+    }
+    
     
     public void placeOrder()
     {

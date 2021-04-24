@@ -17,6 +17,7 @@ public class Customer extends User
     private String creditCardInfo;
     private String shippingInfo;
     private float accountBalance;
+    private ShoppingCart cart;
     
     private Request[] pedidos;
     
@@ -27,7 +28,15 @@ public class Customer extends User
         
         
         pedidos = new Request[100];
-    } 
+        int requestCounter;
+        cart = new ShoppingCart();
+    }
+    
+    public void addRequest(Request x)
+    {
+        this.pedidos[requestCounter];
+    }
+    
     public void register()
     {
         
@@ -42,6 +51,8 @@ public class Customer extends User
     {
         
     }
+    
+    // Get and Set methods
 
     public String getCustomerName() 
     {
@@ -101,6 +112,11 @@ public class Customer extends User
     public void setAccountBalance(float accountBalance) 
     {
         this.accountBalance = accountBalance;
+    }
+
+    public ShoppingCart getCart() 
+    {
+        return cart;
     }
  
     

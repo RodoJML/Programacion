@@ -15,6 +15,7 @@ public class ShoppingCart
 {
     private Date dateCreated;
     private LineItem[] lines;
+    private int lineCounter;
 
     /**
      * IMPORTANT!
@@ -24,6 +25,11 @@ public class ShoppingCart
     {
         dateCreated = new Date();
         lines = new LineItem[100];
+    }
+    
+    public void addLine(LineItem line)
+    {
+        lines[lineCounter]
     }
     
     public Date getDateCreated()
