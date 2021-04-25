@@ -7,8 +7,15 @@ package Project2;
 
 /**
  *
- * @author rodo
+ * @author Rodolfo Meneses Leal 20200112770
  */
-public class View {
+public class Tester 
+{
+    public static void main(String[] args)
+    {
+        SistemaNotasControlador c = new SistemaNotasControlador();
+        
+        c.start();
+    }
     
 }
