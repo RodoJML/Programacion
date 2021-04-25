@@ -25,11 +25,13 @@ public class ShoppingCart
     {
         dateCreated = new Date();
         lines = new LineItem[100];
+        lineCounter = 0;
     }
     
     public void addLine(LineItem line)
     {
-        lines[lineCounter]
+        lines[lineCounter] = line;
+        lineCounter++;
     }
     
     public Date getDateCreated()

@@ -19,6 +19,7 @@ public class Customer extends User
     private float accountBalance;
     private ShoppingCart cart;
     
+    private int requestCounter;
     private Request[] pedidos;
     
     public Customer(String customerName, String address, String email, String creditCardInfo,  String shippingInfo, float accountBalance)
@@ -28,13 +29,14 @@ public class Customer extends User
         
         
         pedidos = new Request[100];
-        int requestCounter;
+        requestCounter = 0;
         cart = new ShoppingCart();
     }
     
     public void addRequest(Request x)
     {
-        this.pedidos[requestCounter];
+        this.pedidos[requestCounter] = x;
+        requestCounter++;
     }
     
     public void register()

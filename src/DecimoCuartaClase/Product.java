@@ -15,6 +15,14 @@ public class Product
     private String name;
     private String supplier;
 
+    public Product(String ID, String name, String supplier) {
+        this.ID = ID;
+        this.name = name;
+        this.supplier = supplier;
+    }
+    
+    
+
     public String getID() {
         return ID;
     }
