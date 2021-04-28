@@ -33,7 +33,6 @@ public class SistemaNotasInterfaz
                 + "\n\n Mode selected: ");
         
         selectedOption = read.nextByte();
-        
         return selectedOption;
     }
 }

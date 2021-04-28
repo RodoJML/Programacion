@@ -14,10 +14,25 @@ public class SistemaNotasReporte
     private String Name;
     private String Father;
     private String Mother;
-    private int grade;
-    
-    public void test()
+    private byte grade;
+    private int index;
+    private SistemaNotasReporte[] notesArray;
+
+    public SistemaNotasReporte(String Name, String Father, String Mother, byte grade)
     {
-        
+        this.Name = Name;
+        this.Father = Father;
+        this.Mother = Mother;
+        this.grade = grade;
     }
+    
+    public SistemaNotasReporte(int amountOfStudents)
+    {
+        notesArray = new SistemaNotasReporte[amountOfStudents];
+        index = 0;
+    }
+    
+    public void addGrade
+    
+    
 }
