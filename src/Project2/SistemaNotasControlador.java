@@ -18,10 +18,7 @@ public class SistemaNotasControlador
     
     public void start()
     {
-
-        model = new SistemaNotasReporte();
-        view = new SistemaNotasInterfaz(model);
-        
+        view = new SistemaNotasInterfaz(model);   
         gui = view.displayMode();
         
         switch(gui)
@@ -34,8 +31,8 @@ public class SistemaNotasControlador
             case 1:
             {
                 view.graphicWelcomeScreen();
-                view.graphicAskNumberOfStudents();
-
+                model = new SistemaNotasReporte(view.graphicAskNumberOfStudents());
+                view.graphicEnterExamInfo();
             }
         }
         

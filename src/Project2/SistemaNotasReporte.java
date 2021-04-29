@@ -13,11 +13,6 @@ public class SistemaNotasReporte
 {
     Examen[] baseDatos;
     
-    public SistemaNotasReporte ()
-    {
-        
-    }
-    
     public SistemaNotasReporte (int numberOfStudents)
     {
         baseDatos = new Examen[numberOfStudents];
