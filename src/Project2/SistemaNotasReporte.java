@@ -11,28 +11,40 @@ package Project2;
  */
 public class SistemaNotasReporte
 {
-    private String Name;
-    private String Father;
-    private String Mother;
-    private byte grade;
-    private int index;
-    private SistemaNotasReporte[] notesArray;
-
-    public SistemaNotasReporte(String Name, String Father, String Mother, byte grade)
+    Examen[] baseDatos;
+    
+    public SistemaNotasReporte ()
     {
-        this.Name = Name;
-        this.Father = Father;
-        this.Mother = Mother;
-        this.grade = grade;
+        
     }
     
-    public SistemaNotasReporte(int amountOfStudents)
+    public SistemaNotasReporte (int numberOfStudents)
     {
-        notesArray = new SistemaNotasReporte[amountOfStudents];
-        index = 0;
+        baseDatos = new Examen[numberOfStudents];
     }
     
-    public void addGrade
+    public SistemaNotasReporte (Examen[] examenes)
+    {
+        this.baseDatos = examenes;
+    }
     
+    public void generarReporteTodosExamenes()
+    {
+        
+    }
     
+    public void generarReporteTodosAlumnos()
+    {
+        
+    }
+    
+    public void generarReporteAlumnosConNotaInferiorA(int grade)
+    {
+        
+    }
+    
+    public void generarReporteTodosExamenesOrdenadosPor(String parameter)
+    {
+        
+    }
 }
