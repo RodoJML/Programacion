@@ -12,43 +12,46 @@ package Project2;
 public class SistemaNotasReporte
 {
     Examen[] baseDatos;
+    private int index;
     
-    public SistemaNotasReporte (int numberOfStudents)
+    
+    
+    public SistemaNotasReporte(int x)
     {
-        baseDatos = new Examen[numberOfStudents];
+        this.baseDatos = new Examen[x];
+        index = 0;
     }
     
-    public SistemaNotasReporte (Examen[] examenes)
+    public void addExamen(String name, String dad, String mom, int points)
     {
-        this.baseDatos = examenes;
-    }
-    
-    public void addExamen(int index, String name, String dad, String mom, int points)
-    {
-        baseDatos[index].setName(name);
-        baseDatos[index].setFather(dad);
-        baseDatos[index].setMother(mom);
-        baseDatos[index].setPointsEarned(points);
-        baseDatos[index].setGrade(points / 25);
-    }
-    
-    public void generarReporteTodosExamenes()
-    {
+        this.baseDatos[index] = new Examen();
         
+        this.baseDatos[index].setName(name);
+        this.baseDatos[index].setFather(dad);
+        this.baseDatos[index].setMother(mom);
+        this.baseDatos[index].setPointsEarned(points);
+        this.baseDatos[index].setGrade((points / 25) * 100); //change to double all points
+        
+        index++;
     }
     
-    public void generarReporteTodosAlumnos()
+    public String generarReporteTodosExamenes()
     {
-        
+        return "text";
     }
     
-    public void generarReporteAlumnosConNotaInferiorA(int grade)
+    public String generarReporteTodosAlumnos()
     {
-        
+        return "text";
     }
     
-    public void generarReporteTodosExamenesOrdenadosPor(String parameter)
+    public String generarReporteAlumnosConNotaInferiorA(int grade)
     {
-        
+        return "text";
+    }
+    
+    public String generarReporteTodosExamenesOrdenadosPor(String parameter)
+    {
+        return "text";
     }
 }

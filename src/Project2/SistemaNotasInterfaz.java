@@ -27,10 +27,18 @@ public class SistemaNotasInterfaz
     private String dialog5 = "Please enter student points earned: ";
     private String dialog6 = "Before starting please select the display mode you want to run\n (0) Interactive Mode  -> This mode uses the console to interact\n (1) Graphic Mode      -> This mode uses the integrated Java user Interface\n\n Mode selected: ";
     private String dialog7 = "Main Menu\nPlease select:\n\n(0) Ingresar Informacion de los examenes\n(1) Generar reporte de todos los examenes\n(2) Generar reporte de todos los alumnos\n(3) Generar reporte de alumnos con nota inferior a ...\n(4) Generar reporte de todos los examenes ordenados por...";
+    private String dialog8 = "Please enter the amount of students you want to include on this report: ";
     
     public SistemaNotasInterfaz(SistemaNotasReporte parameter)
     {
         this.model = parameter;
+    }
+    
+    public int reportLenght()
+    {
+        read = new Scanner(System.in);
+        System.out.println(dialog8);
+        return read.nextInt();
     }
     
     public byte displayMode()
@@ -59,7 +67,7 @@ public class SistemaNotasInterfaz
         return Byte.parseByte(JOptionPane.showInputDialog(dialog1));
     }
     
-    public void graphicEnterExamInfo(int index)
+    public void graphicEnterExamInfo(byte index)
     {        
         JTextField field0 = new JTextField(); //field0.getText()
         JTextField field1 = new JTextField();
@@ -70,9 +78,9 @@ public class SistemaNotasInterfaz
         
         int pointsEarned = Integer.parseInt(JOptionPane.showInputDialog("Points Earned out of 25"));
         
-        model.addExamen(index, dialog0, dialog0, dialog0, index);
+        this.model.addExamen(field0.getText(), field1.getText(), field2.getText(), pointsEarned);
         
-        JOptionPane.showMessageDialog(null, field0.getText() + "grade is " + pointsEarned / 25);
+        JOptionPane.showMessageDialog(null, field0.getText() + "grade is " + model.baseDatos[index].getGrade());
 
     }
 }

@@ -11,13 +11,15 @@ package Project2;
  */
 public class SistemaNotasControlador
 {
-    SistemaNotasReporte model;
+    SistemaNotasReporte model; 
     SistemaNotasInterfaz view = new SistemaNotasInterfaz(model);
     
     byte gui;
     
     public void start()
-    {
+    {        
+        model = new SistemaNotasReporte(view.reportLenght());
+        
         gui = view.displayMode();
         
         switch(gui)
@@ -35,10 +37,9 @@ public class SistemaNotasControlador
                 {
                     case 0:
                     {
-                        byte numberOfStundents = view.graphicAskNumberOfStudents();
-                        model = new SistemaNotasReporte(numberOfStundents);
-                        
-                        for(byte i = 0; i <= numberOfStundents; i++)
+                        int numberOfStudents = view.graphicAskNumberOfStudents();
+
+                        for(byte i = 0; i <= numberOfStudents; i++)
                         {
                             view.graphicEnterExamInfo(i);
                         }

@@ -16,7 +16,7 @@ public class Examen
     private String mother;
     private int pointsEarned;
     private int grade;
-
+    
     public String getName() {
         return name;
     }
