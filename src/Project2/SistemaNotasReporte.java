@@ -23,6 +23,15 @@ public class SistemaNotasReporte
         this.baseDatos = examenes;
     }
     
+    public void addExamen(int index, String name, String dad, String mom, int points)
+    {
+        baseDatos[index].setName(name);
+        baseDatos[index].setFather(dad);
+        baseDatos[index].setMother(mom);
+        baseDatos[index].setPointsEarned(points);
+        baseDatos[index].setGrade(points / 25);
+    }
+    
     public void generarReporteTodosExamenes()
     {
         

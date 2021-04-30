@@ -13,18 +13,47 @@ public class Examen
 {
     private String name;
     private String father;
-    private String mather;
-    private byte pointsEarned;
-    private byte grade;
+    private String mother;
+    private int pointsEarned;
+    private int grade;
 
-    public Examen(String name, String father, String mather, byte pointsEarned, byte grade) 
-    {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFather() {
+        return father;
+    }
+
+    public void setFather(String father) {
         this.father = father;
-        this.mather = mather;
+    }
+
+    public String getMather() {
+        return mother;
+    }
+
+    public void setMother(String mather) {
+        this.mother = mather;
+    }
+
+    public int getPointsEarned() {
+        return pointsEarned;
+    }
+
+    public void setPointsEarned(int pointsEarned) {
         this.pointsEarned = pointsEarned;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
         this.grade = grade;
     }
-    
-    
 }
