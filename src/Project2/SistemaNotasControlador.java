@@ -55,18 +55,19 @@ public class SistemaNotasControlador
                     
                         case 1:
                         {
-                            view.graphicPrintAllExamsInfo(amountOfExams.getUserDefinedLenght());
+                            view.graphicPrintAllExamsInfo();
                             break;
                         } 
                     
                         case 2:
                         {
-                            
+                            view.graphicPrintAllStudentsInfo();
                             break;
                         } 
                     
                         case 3:
                         {
+                            view.graphicPrintAllExamnsBelowGrade();
                             break;
                         } 
                     

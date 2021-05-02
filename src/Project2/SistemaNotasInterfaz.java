@@ -21,15 +21,10 @@ public class SistemaNotasInterfaz
     
     //Dialogs to be used within the interface.
     private String dialog0 = "Welcome to the Grades Report App!";
-    private String dialog1 = "Please enter the amount of students you want to register in this report: ";
-    private String dialog2 = "Please enter student's name: ";
-    private String dialog3 = "Please enter student's father name: ";
-    private String dialog4 = "Please enter student's mother name: ";
-    private String dialog5 = "Please enter student points earned: ";
-    private String dialog6 = "\nPlease select the view mode you want to execute this application\n (0) Interactive Mode  -> On this mode you'll interact with the app using the console only.\n (1) Graphic Mode      -> On this mode you'll interact with the app using the integrated Java user Interface.\n\n Mode selected: ";
-    private String dialog7 = "=== [ Main Menu ] ===\n\n0 - Add exam information\n1 - Generate report for all exams\n2 - Generate report for all students\n3 - Generate report for students with a grade below...\n4 - Generate report for all examns sorted by...\n\nPlease select an option by entering a number below:";
+    private String dialog6 = "\nPlease select the view mode you want to execute this application\n (0) Interactive Mode  -> Interact with the app using the console only.\n (1) Graphic Mode      -> Interact with the app using the integrated Java user Interface.\n\n Mode selected: ";
+    private String dialog7 = "=== [ Main Menu ] ===\n\n0 - Add exam(s) information\n1 - Generate report for all exams\n2 - Generate report for all students\n3 - Generate report for students with a grade below...\n4 - Generate report for all examns sorted by...\n\nPlease select an option by entering a number below:";
     private String dialog8 = "\nREMINDER: This report can hold up to ";
-    private String dialog9 = "";
+    private String dialog9 = "Show all exams below grade: ";
     
     public SistemaNotasInterfaz(SistemaNotasReporte parameter0, ReportLenght parameter1)
     {
@@ -70,18 +65,25 @@ public class SistemaNotasInterfaz
         JOptionPane.showMessageDialog(null, field0.getText() + "'s grade is " + model.baseDatos[index].getGrade());
     }
     
-    public void graphicPrintAllExamsInfo(int numberOfStudents)
+    public void graphicPrintAllExamsInfo()
     {
-        JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenes(numberOfStudents));
+        JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenes());
     }
     
-    public void graphicPrintAllStudentsInfo(int numberOfStudents)
+    public void graphicPrintAllStudentsInfo()
     {
-        JOptionPane.showMessageDialog(null, model.generarReporteTodosAlumnos(numberOfStudents));
+        JOptionPane.showMessageDialog(null, model.generarReporteTodosAlumnos());
     }
+    
+    public void graphicPrintAllExamnsBelowGrade()
+    {
+        JOptionPane.showMessageDialog(null, model.generarReporteAlumnosConNotaInferiorA(
+                Integer.valueOf(JOptionPane.showInputDialog(dialog9))));
+    }
+    
     
     public void graphicReportFull()
     {
-        JOptionPane.showMessageDialog(null, "Report is full, no more exams can be added");
+        JOptionPane.showMessageDialog(null, "Report is full! \nNo more exams can be added");
     }
 }

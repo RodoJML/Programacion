@@ -32,11 +32,11 @@ public class SistemaNotasReporte
         index++;
     }
     
-    public String generarReporteTodosExamenes(int numberOfStudents)
+    public String generarReporteTodosExamenes()
     {
         String allExams = ""; 
         
-        for(int i = 0; i < numberOfStudents; i++)
+        for(int i = 0; i < totalExamns; i++)
         {
             allExams +=  this.baseDatos[i].getGrade();
             allExams += "\n";
@@ -45,16 +45,14 @@ public class SistemaNotasReporte
         return allExams;
     }
     
-    public String generarReporteTodosAlumnos(int numberOfStudents)
+    public String generarReporteTodosAlumnos()
     {
         String allStudents = "";
         
-        for(int i = 0; i < numberOfStudents; i++)
+        for(int i = 0; i < totalExamns; i++)
         {
             allStudents += "Student: ";
             allStudents +=  this.baseDatos[i].getName();
-            allStudents += " Parent: ";
-            allStudents +=  this.baseDatos[i].getParent();
             allStudents += "\n";
         }
         
@@ -63,12 +61,19 @@ public class SistemaNotasReporte
     
     public String generarReporteAlumnosConNotaInferiorA(int grade)
     {
-        return "text";
-    }
-    
-    public String generarReporteTodosExamenesOrdenadosPor(String parameter)
-    {
-        return "text";
+        String allGradesBelowX = "";
+        
+        for(int i = 0; i < totalExamns; i++)
+        {
+            if(this.baseDatos[i].getGrade() < grade)
+            {
+                allGradesBelowX += String.valueOf(this.baseDatos[i].getGrade());
+                allGradesBelowX += " - ";
+                allGradesBelowX += this.baseDatos[i].getName();
+                allGradesBelowX += "\n";
+            }
+        }
+        return allGradesBelowX;
     }
 
     public int getIndex()
@@ -76,5 +81,13 @@ public class SistemaNotasReporte
         return index;
     }
     
+    public double generarReporteTodosExamenesOrdenadosPor(String parameter)
+    {
+        private void mergeSort()
+        {
+            
+        }
+        return 0;
+    }
     
 }
