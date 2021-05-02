@@ -21,77 +21,66 @@ public class SistemaNotasControlador
     {   
         gui = view.displayMode();
         
-        switch(gui)
-        {
-            case 0:
-            {
-                break;
-            }
-            
-            case 1:
-            {
-                view.graphicWelcomeScreen();
-                boolean reportedExist = false;
+        view.graphicWelcomeScreen(gui);
+        boolean reportExists = false;
                 
-                while (true)
+        while (true)
+        {
+            switch(view.graphicMainMenu(gui))
+            {
+                case 0:
                 {
-                    switch(view.graphicMainMenu())
+                    if(model.getIndex() >= amountOfExams.getUserDefinedLenght())
                     {
-                        case 0:
-                        {
-                            if(model.getIndex() >= amountOfExams.getUserDefinedLenght())
-                            {
-                                view.graphicReportFull();
-                            }
-                            else
-                            {
-                                for(byte i = 0; i < amountOfExams.getUserDefinedLenght(); i++)
-                                {
-                                    view.graphicEnterExamInfo(i);
-                                }
-                            }
-                            reportedExist = true;
-                            break;
-                        }    
-                    
-                        case 1:
-                        {
-                            if(reportedExist == false)
-                                break;
-                            
-                            view.graphicPrintAllExamsInfo();
-                                break;
-                        } 
-                    
-                        case 2:
-                        {
-                            if(reportedExist == false)
-                                break;
-                            
-                            view.graphicPrintAllStudentsInfo();
-                            break;
-                        } 
-                    
-                        case 3:
-                        {
-                            if(reportedExist == false)
-                                break;
-                            
-                            view.graphicPrintAllExamnsBelowGrade();
-                            break;
-                        } 
-                    
-                        case 4:
-                        {
-                            if(reportedExist == false)
-                                break;
-                            
-                            view.graphicExamsSortedBy();
-                            break;
-                        } 
+                        view.graphicReportFull(gui);
                     }
+                        else
+                        {
+                            for(byte i = 0; i < amountOfExams.getUserDefinedLenght(); i++)
+                            {
+                                view.graphicEnterExamInfo(i, gui);
+                            }
+                        }
+                        reportExists = true;
+                        break;
                 }
+                        
+                case 1:
+                {
+                    if(reportExists == false)
+                        break;
+                            
+                    view.graphicPrintAllExamsInfo(gui);
+                    break;
+                } 
+                    
+                case 2:
+                {
+                    if(reportExists == false)
+                        break;
+                            
+                    view.graphicPrintAllStudentsInfo(gui);
+                    break;
+                } 
+                    
+                case 3:
+                {
+                    if(reportExists == false)
+                        break;
+                            
+                    view.graphicPrintAllExamnsBelowGrade(gui);
+                    break;
+                } 
+                    
+                case 4:
+                {
+                    if(reportExists == false)
+                        break;
+
+                    view.graphicExamsSortedBy(gui);
+                    break;
+                } 
             }
-        } 
+        }
     }
-}
+} 

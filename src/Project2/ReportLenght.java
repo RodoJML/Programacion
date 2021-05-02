@@ -21,9 +21,10 @@ public class ReportLenght
     
     public int UserDefinesReportLenght()
     {
-        System.out.print("Universidad Latina de Costa Rica - BIS03 Programacion I para TI"
-                            + "\nBefore initiating this application please indicate how "
-                            + "many examns you want to register today: ");
+        System.out.print("2021 Universidad Latina de Costa Rica"
+                            + "\nFinal Project | BIS03 Programacion I para TI | Elaborated by: Rodolfo Meneses Leal"
+                            + "\nBefore initiating this app, please indicate how "
+                            + "many exams you want to register today: ");
         
         this.userDefinedLenght = read.nextInt();
         

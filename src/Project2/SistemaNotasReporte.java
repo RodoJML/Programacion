@@ -12,7 +12,7 @@ package Project2;
 public class SistemaNotasReporte
 {
     Examen[] baseDatos;
-    double[] sortedExams;
+    private double[] sortedExams;
     private int index;
     private int totalExams;
     
@@ -39,6 +39,7 @@ public class SistemaNotasReporte
         
         for(int i = 0; i < totalExams; i++)
         {
+            allExams += "Grade: ";
             allExams +=  this.baseDatos[i].getGrade();
             allExams += "\n";
         }
@@ -68,8 +69,9 @@ public class SistemaNotasReporte
         {
             if(this.baseDatos[i].getGrade() < grade)
             {
+                allGradesBelowX += "Grade: ";
                 allGradesBelowX += String.valueOf(this.baseDatos[i].getGrade());
-                allGradesBelowX += " - ";
+                allGradesBelowX += " - Student: ";
                 allGradesBelowX += this.baseDatos[i].getName();
                 allGradesBelowX += "\n";
             }
