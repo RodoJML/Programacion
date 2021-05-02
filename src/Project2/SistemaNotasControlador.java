@@ -11,55 +11,70 @@ package Project2;
  */
 public class SistemaNotasControlador
 {
-    SistemaNotasReporte model; 
-    SistemaNotasInterfaz view = new SistemaNotasInterfaz(model);
+    ReportLenght amountOfExams  = new ReportLenght();
+    SistemaNotasReporte model   = new SistemaNotasReporte(amountOfExams.UserDefinesReportLenght()); 
+    SistemaNotasInterfaz view   = new SistemaNotasInterfaz(model, amountOfExams);
     
     byte gui;
     
     public void start()
-    {        
-        model = new SistemaNotasReporte(view.reportLenght());
-        
+    {   
         gui = view.displayMode();
         
         switch(gui)
         {
             case 0:
             {
-                
+                break;
             }
             
             case 1:
             {
                 view.graphicWelcomeScreen();
                 
-                switch(view.graphicMainMenu())
+                while (true)
                 {
-                    case 0:
+                    switch(view.graphicMainMenu())
                     {
-                        int numberOfStudents = view.graphicAskNumberOfStudents();
-
-                        for(byte i = 0; i <= numberOfStudents; i++)
+                        case 0:
                         {
-                            view.graphicEnterExamInfo(i);
-                        }
-                    }    
+                            if(model.getIndex() >= amountOfExams.getUserDefinedLenght())
+                            {
+                                view.graphicReportFull();
+                            }
+                            else
+                            {
+                                for(byte i = 0; i < amountOfExams.getUserDefinedLenght(); i++)
+                                {
+                                    view.graphicEnterExamInfo(i);
+                                }
+                            
+                            }
+                            break;
+                        }    
                     
-                    case 1:
-                    {
-                    } 
+                        case 1:
+                        {
+                            view.graphicPrintAllExamsInfo(amountOfExams.getUserDefinedLenght());
+                            break;
+                        } 
                     
-                    case 2:
-                    {
-                    } 
+                        case 2:
+                        {
+                            
+                            break;
+                        } 
                     
-                    case 3:
-                    {
-                    } 
+                        case 3:
+                        {
+                            break;
+                        } 
                     
-                    case 4:
-                    {
-                    } 
+                        case 4:
+                        {
+                            break;
+                        } 
+                    }
                 }
             }
         }

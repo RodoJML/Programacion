@@ -16,29 +16,25 @@ import javax.swing.JTextField;
 public class SistemaNotasInterfaz
 {
     SistemaNotasReporte model;
+    ReportLenght lenght;
     Scanner read;
     
     //Dialogs to be used within the interface.
-    private String dialog0 = "Welcome to the Grades Report App";
+    private String dialog0 = "Welcome to the Grades Report App!";
     private String dialog1 = "Please enter the amount of students you want to register in this report: ";
     private String dialog2 = "Please enter student's name: ";
     private String dialog3 = "Please enter student's father name: ";
     private String dialog4 = "Please enter student's mother name: ";
     private String dialog5 = "Please enter student points earned: ";
-    private String dialog6 = "Before starting please select the display mode you want to run\n (0) Interactive Mode  -> This mode uses the console to interact\n (1) Graphic Mode      -> This mode uses the integrated Java user Interface\n\n Mode selected: ";
-    private String dialog7 = "Main Menu\nPlease select:\n\n(0) Ingresar Informacion de los examenes\n(1) Generar reporte de todos los examenes\n(2) Generar reporte de todos los alumnos\n(3) Generar reporte de alumnos con nota inferior a ...\n(4) Generar reporte de todos los examenes ordenados por...";
-    private String dialog8 = "Please enter the amount of students you want to include on this report: ";
+    private String dialog6 = "\nPlease select the view mode you want to execute this application\n (0) Interactive Mode  -> On this mode you'll interact with the app using the console only.\n (1) Graphic Mode      -> On this mode you'll interact with the app using the integrated Java user Interface.\n\n Mode selected: ";
+    private String dialog7 = "=== [ Main Menu ] ===\n\n0 - Add exam information\n1 - Generate report for all exams\n2 - Generate report for all students\n3 - Generate report for students with a grade below...\n4 - Generate report for all examns sorted by...\n\nPlease select an option by entering a number below:";
+    private String dialog8 = "\nREMINDER: This report can hold up to ";
+    private String dialog9 = "";
     
-    public SistemaNotasInterfaz(SistemaNotasReporte parameter)
+    public SistemaNotasInterfaz(SistemaNotasReporte parameter0, ReportLenght parameter1)
     {
-        this.model = parameter;
-    }
-    
-    public int reportLenght()
-    {
-        read = new Scanner(System.in);
-        System.out.println(dialog8);
-        return read.nextInt();
+        this.model  = parameter0;
+        this.lenght = parameter1;
     }
     
     public byte displayMode()
@@ -54,33 +50,38 @@ public class SistemaNotasInterfaz
     
     public void graphicWelcomeScreen()
     {
-        JOptionPane.showMessageDialog(null, dialog0);
+        JOptionPane.showMessageDialog(null, dialog0 + dialog8 + lenght.getUserDefinedLenght() + " exams only.");
     }
     
-    public byte graphicMainMenu()
+     public byte graphicMainMenu()
     {
         return Byte.parseByte(JOptionPane.showInputDialog(dialog7));
     }
-    
-    public byte graphicAskNumberOfStudents()
-    {
-        return Byte.parseByte(JOptionPane.showInputDialog(dialog1));
-    }
-    
+
     public void graphicEnterExamInfo(byte index)
     {        
-        JTextField field0 = new JTextField(); //field0.getText()
+        JTextField field0 = new JTextField();
         JTextField field1 = new JTextField();
         JTextField field2 = new JTextField();
         
-        Object[] fields = {"Student Name", field0, "Father Name", field1, "Mother Name", field2};
+        Object[] fields = {"Student Name", field0, "Parent Name", field1, "Points earned (25 total)", field2};
         JOptionPane.showConfirmDialog(null, fields, "Exam Information", JOptionPane.OK_CANCEL_OPTION);
-        
-        int pointsEarned = Integer.parseInt(JOptionPane.showInputDialog("Points Earned out of 25"));
-        
-        this.model.addExamen(field0.getText(), field1.getText(), field2.getText(), pointsEarned);
-        
-        JOptionPane.showMessageDialog(null, field0.getText() + "grade is " + model.baseDatos[index].getGrade());
-
+        this.model.addExamen(field0.getText(), field1.getText(), Integer.parseInt(field2.getText()));
+        JOptionPane.showMessageDialog(null, field0.getText() + "'s grade is " + model.baseDatos[index].getGrade());
+    }
+    
+    public void graphicPrintAllExamsInfo(int numberOfStudents)
+    {
+        JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenes(numberOfStudents));
+    }
+    
+    public void graphicPrintAllStudentsInfo(int numberOfStudents)
+    {
+        JOptionPane.showMessageDialog(null, model.generarReporteTodosAlumnos(numberOfStudents));
+    }
+    
+    public void graphicReportFull()
+    {
+        JOptionPane.showMessageDialog(null, "Report is full, no more exams can be added");
     }
 }

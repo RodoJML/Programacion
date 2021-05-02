@@ -13,36 +13,52 @@ public class SistemaNotasReporte
 {
     Examen[] baseDatos;
     private int index;
+    private int totalExamns;
     
-    
-    
-    public SistemaNotasReporte(int x)
+    public SistemaNotasReporte(int amountOfStundents)
     {
-        this.baseDatos = new Examen[x];
+        this.baseDatos = new Examen[amountOfStundents];
+        this.totalExamns = amountOfStundents;
         index = 0;
     }
     
-    public void addExamen(String name, String dad, String mom, int points)
+    public void addExamen(String name, String parent, double points) 
     {
         this.baseDatos[index] = new Examen();
-        
         this.baseDatos[index].setName(name);
-        this.baseDatos[index].setFather(dad);
-        this.baseDatos[index].setMother(mom);
+        this.baseDatos[index].setParent(parent);
         this.baseDatos[index].setPointsEarned(points);
-        this.baseDatos[index].setGrade((points / 25) * 100); //change to double all points
-        
+        this.baseDatos[index].setGrade((points / 25) * 100);
         index++;
     }
     
-    public String generarReporteTodosExamenes()
+    public String generarReporteTodosExamenes(int numberOfStudents)
     {
-        return "text";
+        String allExams = ""; 
+        
+        for(int i = 0; i < numberOfStudents; i++)
+        {
+            allExams +=  this.baseDatos[i].getGrade();
+            allExams += "\n";
+        }
+        
+        return allExams;
     }
     
-    public String generarReporteTodosAlumnos()
+    public String generarReporteTodosAlumnos(int numberOfStudents)
     {
-        return "text";
+        String allStudents = "";
+        
+        for(int i = 0; i < numberOfStudents; i++)
+        {
+            allStudents += "Student: ";
+            allStudents +=  this.baseDatos[i].getName();
+            allStudents += " Parent: ";
+            allStudents +=  this.baseDatos[i].getParent();
+            allStudents += "\n";
+        }
+        
+        return allStudents;
     }
     
     public String generarReporteAlumnosConNotaInferiorA(int grade)
@@ -54,4 +70,11 @@ public class SistemaNotasReporte
     {
         return "text";
     }
+
+    public int getIndex()
+    {
+        return index;
+    }
+    
+    
 }

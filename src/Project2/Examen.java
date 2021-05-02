@@ -12,10 +12,9 @@ package Project2;
 public class Examen
 {
     private String name;
-    private String father;
-    private String mother;
-    private int pointsEarned;
-    private int grade;
+    private String parent;
+    private double pointsEarned;
+    private double grade;
     
     public String getName() {
         return name;
@@ -25,35 +24,27 @@ public class Examen
         this.name = name;
     }
 
-    public String getFather() {
-        return father;
+    public String getParent() {
+        return parent;
     }
 
-    public void setFather(String father) {
-        this.father = father;
+    public void setParent(String parent) {
+        this.parent = parent;
     }
 
-    public String getMather() {
-        return mother;
-    }
-
-    public void setMother(String mather) {
-        this.mother = mather;
-    }
-
-    public int getPointsEarned() {
+    public double getPointsEarned() {
         return pointsEarned;
     }
 
-    public void setPointsEarned(int pointsEarned) {
+    public void setPointsEarned(double pointsEarned) {
         this.pointsEarned = pointsEarned;
     }
 
-    public int getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 }
