@@ -25,6 +25,8 @@ public class SistemaNotasInterfaz
     private String dialog7 = "=== [ Main Menu ] ===\n\n0 - Add exam(s) information\n1 - Generate report for all exams\n2 - Generate report for all students\n3 - Generate report for students with a grade below...\n4 - Generate report for all examns sorted by...\n\nPlease select an option by entering a number below:";
     private String dialog8 = "\nREMINDER: This report can hold up to ";
     private String dialog9 = "Show all exams below grade: ";
+    private String dialog10 = "Please select the sort method: \n0 - Grades\n1 - Points";
+    private String dialog11 = "The selected option is not a valid sort method";
     
     public SistemaNotasInterfaz(SistemaNotasReporte parameter0, ReportLenght parameter1)
     {
@@ -81,9 +83,24 @@ public class SistemaNotasInterfaz
                 Integer.valueOf(JOptionPane.showInputDialog(dialog9))));
     }
     
-    
     public void graphicReportFull()
     {
         JOptionPane.showMessageDialog(null, "Report is full! \nNo more exams can be added");
+    }
+    
+    public void graphicExamsSortedBy()
+    {
+        String option = JOptionPane.showInputDialog(dialog10);
+        
+        if(option.equals("0") || option.equals("1"))
+        {
+            JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenesOrdenadosPor
+        (Integer.valueOf(option)));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, dialog11);
+            return;
+        }
     }
 }

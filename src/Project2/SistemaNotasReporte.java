@@ -12,13 +12,14 @@ package Project2;
 public class SistemaNotasReporte
 {
     Examen[] baseDatos;
+    double[] sortedExams;
     private int index;
-    private int totalExamns;
+    private int totalExams;
     
     public SistemaNotasReporte(int amountOfStundents)
     {
         this.baseDatos = new Examen[amountOfStundents];
-        this.totalExamns = amountOfStundents;
+        this.totalExams = amountOfStundents;
         index = 0;
     }
     
@@ -36,7 +37,7 @@ public class SistemaNotasReporte
     {
         String allExams = ""; 
         
-        for(int i = 0; i < totalExamns; i++)
+        for(int i = 0; i < totalExams; i++)
         {
             allExams +=  this.baseDatos[i].getGrade();
             allExams += "\n";
@@ -49,7 +50,7 @@ public class SistemaNotasReporte
     {
         String allStudents = "";
         
-        for(int i = 0; i < totalExamns; i++)
+        for(int i = 0; i < totalExams; i++)
         {
             allStudents += "Student: ";
             allStudents +=  this.baseDatos[i].getName();
@@ -63,7 +64,7 @@ public class SistemaNotasReporte
     {
         String allGradesBelowX = "";
         
-        for(int i = 0; i < totalExamns; i++)
+        for(int i = 0; i < totalExams; i++)
         {
             if(this.baseDatos[i].getGrade() < grade)
             {
@@ -81,13 +82,88 @@ public class SistemaNotasReporte
         return index;
     }
     
-    public double generarReporteTodosExamenesOrdenadosPor(String parameter)
+    public String generarReporteTodosExamenesOrdenadosPor(int parameter)
     {
-        private void mergeSort()
+        String sorted = "false";
+        double[] array = new double[totalExams];
+       
+        if(parameter < 2)
         {
+            switch(parameter)
+            {
+                case 0:
+                {
+                    for(int i = 0; i < totalExams; i++)
+                    {
+                        array[i] = this.baseDatos[i].getGrade();
+                    }
+                    break;
+                }
+                
+                case 1:
+                {
+                    for(int i = 0; i < totalExams; i++)
+                    {
+                        array[i] = this.baseDatos[i].getPointsEarned();
+                    }
+                    break;
+                }
+            }
             
+            mergeSort(array, 0, totalExams - 1);
+            
+            for(int i = 0; i < totalExams; i++)
+            {
+                sorted += String.valueOf(this.sortedExams[i]);
+                sorted += "\n";
+            }
         }
-        return 0;
+
+        return sorted;
     }
     
+    private void mergeSort(double array[], int start, int end)
+    {
+        if(start >= end)
+            return;
+        
+        int middle = (start + end) / 2;
+        
+        mergeSort(array, start, middle);
+        mergeSort(array, middle + 1, end);
+        
+        merge(array, start, end);
+    }
+    
+    private void merge(double array[], int start, int end)
+    {
+        double[] temporaryArray = new double[totalExams];
+        
+        int indexMiddle = (start + end) / 2;
+        int indexStart0 = start;
+        int indexStart1 = indexMiddle + 1;
+        int indexNew = start;
+        
+        while(indexStart0 <= indexMiddle && indexStart1 <= end) // This is a validation 
+        {
+            if(array[indexStart0] < array[indexStart1])
+                temporaryArray[indexNew++] = array[indexStart0++];
+            else
+                temporaryArray[indexNew++] = array[indexStart1++];
+        }
+        
+        while(indexStart0 <= indexMiddle)
+            temporaryArray[indexNew++] = array[indexStart0++];
+        
+        while(indexStart1 <= end)
+            temporaryArray[indexNew++] = array[indexStart1++];
+        
+        for(int i = 0; i < end; i++)
+        {
+            array[i] = temporaryArray[i];
+        }
+        
+        this.sortedExams = array;
+    }
+        
 }

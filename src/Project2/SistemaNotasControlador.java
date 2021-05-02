@@ -34,6 +34,8 @@ public class SistemaNotasControlador
                 
                 while (true)
                 {
+                    boolean reportedExist = false;
+                    
                     switch(view.graphicMainMenu())
                     {
                         case 0:
@@ -48,37 +50,49 @@ public class SistemaNotasControlador
                                 {
                                     view.graphicEnterExamInfo(i);
                                 }
-                            
                             }
+                            reportedExist = true;
                             break;
                         }    
                     
                         case 1:
                         {
+                            if(reportedExist == false)
+                                break;
+                            
                             view.graphicPrintAllExamsInfo();
-                            break;
+                                break;
                         } 
                     
                         case 2:
                         {
+                            if(reportedExist == false)
+                                break;
+                            
                             view.graphicPrintAllStudentsInfo();
                             break;
                         } 
                     
                         case 3:
                         {
+                            if(reportedExist == false)
+                                break;
+                            
                             view.graphicPrintAllExamnsBelowGrade();
                             break;
                         } 
                     
                         case 4:
                         {
+                            if(reportedExist == false)
+                                break;
+                            
+                            view.graphicExamsSortedBy();
                             break;
                         } 
                     }
                 }
             }
-        }
-        
+        } 
     }
 }
