@@ -31,11 +31,10 @@ public class SistemaNotasControlador
             case 1:
             {
                 view.graphicWelcomeScreen();
+                boolean reportedExist = false;
                 
                 while (true)
                 {
-                    boolean reportedExist = false;
-                    
                     switch(view.graphicMainMenu())
                     {
                         case 0:

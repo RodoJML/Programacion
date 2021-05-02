@@ -92,15 +92,13 @@ public class SistemaNotasInterfaz
     {
         String option = JOptionPane.showInputDialog(dialog10);
         
-        if(option.equals("0") || option.equals("1"))
-        {
-            JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenesOrdenadosPor
-        (Integer.valueOf(option)));
-        }
-        else
+        if(option.equals(null))
         {
             JOptionPane.showMessageDialog(null, dialog11);
             return;
         }
+
+        JOptionPane.showMessageDialog(null, model.generarReporteTodosExamenesOrdenadosPor
+        (Integer.valueOf(option)));
     }
 }

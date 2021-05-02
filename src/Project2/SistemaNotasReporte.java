@@ -84,7 +84,7 @@ public class SistemaNotasReporte
     
     public String generarReporteTodosExamenesOrdenadosPor(int parameter)
     {
-        String sorted = "false";
+        String sorted = null;
         double[] array = new double[totalExams];
        
         if(parameter < 2)
@@ -97,6 +97,7 @@ public class SistemaNotasReporte
                     {
                         array[i] = this.baseDatos[i].getGrade();
                     }
+                    sorted = "";
                     break;
                 }
                 
@@ -106,6 +107,7 @@ public class SistemaNotasReporte
                     {
                         array[i] = this.baseDatos[i].getPointsEarned();
                     }
+                    sorted = "";
                     break;
                 }
             }
@@ -158,7 +160,7 @@ public class SistemaNotasReporte
         while(indexStart1 <= end)
             temporaryArray[indexNew++] = array[indexStart1++];
         
-        for(int i = 0; i < end; i++)
+        for(int i = start; i <= end; i++)
         {
             array[i] = temporaryArray[i];
         }
