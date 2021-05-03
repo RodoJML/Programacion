@@ -11,5 +11,20 @@ package ExamenFinal;
  */
 public class EquipoSonido
 {
+    String playlist[];
     
+    public EquipoSonido()
+    {
+        this.playlist = new String[1000];
+        
+        for(int i = 0; i <= 1000; i++)
+        {
+            this.playlist[i] = "";
+        }    
+    }
+    
+    public void addToPlaylist(String audio)
+    {
+        
+    }
 }
