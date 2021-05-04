@@ -12,8 +12,6 @@ package ExamenFinal;
 public class LeftSpeaker
 {
     int volumeLevel;
-    int maxVol;
-    int minVol;
    
     public Audio sonar(Audio mp3)
     {
