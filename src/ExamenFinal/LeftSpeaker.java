@@ -24,5 +24,11 @@ public class LeftSpeaker
     {
         return false;
     }
+
+    public void setVolumeLevel(int volumeLevel) 
+    {
+        this.volumeLevel = volumeLevel;
+    }
+    
     
 }

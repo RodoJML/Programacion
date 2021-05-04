@@ -24,9 +24,19 @@ public class EquipoSonido
         }    
     }
     
-    public void addAudioToPlaylist(Audio mp3, int index)
+    public void addAudioToPlaylist(String mp3, int index)
     {
-        this.playlist[index] = mp3;
+        this.playlist[index].setAudio(mp3);
     }
     
+    public void deleteAudioFromPlaylist(int index)
+    {
+        String mp3 = "";
+        this.playlist[index].setAudio(mp3);
+    }
+    
+    public String showAllPlaylist()
+    {
+        
+    }
 }

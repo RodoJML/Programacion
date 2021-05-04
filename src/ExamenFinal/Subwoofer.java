@@ -24,4 +24,11 @@ public class Subwoofer
     {
         return false;
     }
+
+    public void setVolumeLevel(int volumeLevel)
+    {
+        this.volumeLevel = volumeLevel;
+    }
+    
+    
 }
