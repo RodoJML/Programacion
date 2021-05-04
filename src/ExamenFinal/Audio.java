@@ -12,7 +12,7 @@ package ExamenFinal;
 public class Audio 
 {
     String audio;
-    String internetAudio = "Internet Radio 0101010101010";
+    String internetAudio = "Internet audio 101010101";
 
     public String getAudio() 
     {
@@ -24,8 +24,11 @@ public class Audio
         this.audio = mp3;
     }
 
-    public String getInternetAudio() {
+    public String getInternetAudio() 
+    {
         return internetAudio;
     }
+    
+    
     
 }

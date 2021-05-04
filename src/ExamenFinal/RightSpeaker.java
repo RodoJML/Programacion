@@ -30,6 +30,4 @@ public class RightSpeaker
         this.volumeLevel = volumeLevel;
     }
     
-    
-    
 }

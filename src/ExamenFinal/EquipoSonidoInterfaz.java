@@ -107,7 +107,7 @@ public class EquipoSonidoInterfaz
     {
         System.out.print("Turn Radio ON (True or False): ");
         boolean radioMode = read.nextBoolean();
-        model.setStereoMode(radioMode);
+        System.out.print(model.setStereoMode(radioMode));
         
         if(radioMode == true)
         {

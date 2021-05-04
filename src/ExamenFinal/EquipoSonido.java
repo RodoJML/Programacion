@@ -105,7 +105,7 @@ public class EquipoSonido
         this.SW.setVolumeLevel(swVol);
     }
     
-    public void setStereoMode(boolean radio)
+    public String setStereoMode(boolean radio)
     {
         if(radio == true)
         {
@@ -115,6 +115,9 @@ public class EquipoSonido
         else
             this.playlistMode = true;
             this.radioMode = false;
+        
+        Audio radioAudio = new Audio();
+        return radioAudio.getInternetAudio();
     }
     
     public void autoPower(int hour, int minutes)
