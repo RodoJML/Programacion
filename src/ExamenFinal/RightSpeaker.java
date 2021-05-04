@@ -15,9 +15,9 @@ public class RightSpeaker
     int maxVol;
     int minVol;
     
-    public String sonar(String texto)
+    public Audio sonar(Audio mp3)
     {
-        return "";
+        return mp3;
     }
     
     public boolean status(boolean state)

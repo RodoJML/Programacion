@@ -18,8 +18,8 @@ public class Audio
         return audio;
     }
 
-    public void setAudio(String audio) 
+    public void setAudio(String mp3) 
     {
-        this.audio = audio;
+        this.audio = mp3;
     }
 }

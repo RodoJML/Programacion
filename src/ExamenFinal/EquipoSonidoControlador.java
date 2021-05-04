@@ -11,5 +11,8 @@ package ExamenFinal;
  */
 public class EquipoSonidoControlador
 {
+    EquipoSonido model = new EquipoSonido();
+    EquipoSonidoInterfaz view = new EquipoSonidoInterfaz(model);
+    
     
 }

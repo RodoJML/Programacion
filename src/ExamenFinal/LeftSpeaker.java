@@ -15,9 +15,9 @@ public class LeftSpeaker
     int maxVol;
     int minVol;
    
-    public int sonar(String audio)
+    public Audio sonar(Audio mp3)
     {
-        return 0;
+        return mp3;
     }
     
     public boolean status(boolean state)
