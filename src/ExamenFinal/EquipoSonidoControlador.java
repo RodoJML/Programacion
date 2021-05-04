@@ -23,38 +23,47 @@ public class EquipoSonidoControlador
                 case 0:
                 {
                     view.viewAddAudio();
+                    break;
                 }
                 case 1:
                 {
                     view.viewDeleteAudio();
+                    break;
                 }
                 case 2:
                 {
                     view.viewShowAllPlaylist();
+                    break;
                 }
                 case 3:
                 {
                     view.viewListenPlaylistOrder();
+                    break;
                 }
                 case 4:
                 {
                     view.viewListenPlaylistRandom();
+                    break;
                 }
                 case 5:
                 {
                     view.viewSetVolumen();
+                    break;
                 }
                 case 6:
                 {
                     view.viewRadioMode();
+                    break;
                 }
                 case 7:
                 {
                     view.viewSetAlarm();
+                    break;
                 }
                 case 8:
                 {
                     view.setSpeakersStatus();
+                    break;
                 }    
             }
         }

@@ -28,6 +28,4 @@ public class Subwoofer
     {
         this.volumeLevel = volumeLevel;
     }
-    
-    
 }
