@@ -62,17 +62,39 @@ public class EquipoSonido
         
         for(int i = 0; i < 1000; i++)
         {
-            
             audioOrder += "Playing: ";
             audioOrder += this.playlist[i].getAudio();
             audioOrder += "\n";
+            sendAudio(this.playlist[i]);
         }
+        return audioOrder;
+    }
+    
+    public String listenPlaylistRandom()
+    {
+        String audioOrder = "";
         
+        for(int i = 0; i < 1000; i++)
+        {
+            audioOrder += "Playing: ";
+            audioOrder += this.playlist[i].getAudio();
+            audioOrder += "\n";
+            sendAudio(this.playlist[i]);
+        }
+        return audioOrder;
     }
     
     public void sendAudio(Audio mp3)
     {
         RS.sonar(mp3);
         LS.sonar(mp3);
+        SW.sonar(mp3);
+    }
+    
+    public void setVolume(int rsVol, int lsVol, int swVol)
+    {
+        RS.setVolumeLevel(rsVol);
+        LS.setVolumeLevel(lsVol);
+        SW.setVolumeLevel(swVol);
     }
 }
