@@ -12,6 +12,9 @@ package ExamenFinal;
 public class EquipoSonido
 {
     Audio playlist[];
+    RightSpeaker RS;
+    LeftSpeaker LS;
+    Subwoofer SW;
     String audio;
     
     public EquipoSonido()
@@ -21,7 +24,11 @@ public class EquipoSonido
         for(int i = 0; i <= 1000; i++)
         {
             this.playlist[i].setAudio("");
-        }    
+        }
+        
+        this.RS = new RightSpeaker();
+        this.LS = new LeftSpeaker();
+        this.SW = new Subwoofer();
     }
     
     public void addAudioToPlaylist(String mp3, int index)
@@ -37,6 +44,35 @@ public class EquipoSonido
     
     public String showAllPlaylist()
     {
+        String allPlaylist = "";
         
+        for(int i = 0; i < 1000; i++)
+        {
+            allPlaylist += "Song: ";
+            allPlaylist += this.playlist[i].getAudio();
+            allPlaylist += "\n";
+        }
+        
+        return allPlaylist;
+    }
+    
+    public String listenPlaylistOrder()
+    {
+        String audioOrder = "";
+        
+        for(int i = 0; i < 1000; i++)
+        {
+            
+            audioOrder += "Playing: ";
+            audioOrder += this.playlist[i].getAudio();
+            audioOrder += "\n";
+        }
+        
+    }
+    
+    public void sendAudio(Audio mp3)
+    {
+        RS.sonar(mp3);
+        LS.sonar(mp3);
     }
 }
