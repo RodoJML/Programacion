@@ -12,6 +12,7 @@ package ExamenFinal;
 public class RightSpeaker
 {
     int volumeLevel;
+    boolean status;
     
     public Audio sonar(Audio mp3)
     {

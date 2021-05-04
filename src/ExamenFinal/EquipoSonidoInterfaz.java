@@ -127,4 +127,11 @@ public class EquipoSonidoInterfaz
         
         System.out.print("Your device will turn ON at " + model.clock.getHora() + " : " + model.clock.getMinutos());
     }
+    
+    public void setSpeakersStatus()
+    {
+        System.out.print("Enable spekers (True or False): ");
+        boolean status = read.nextBoolean();
+        model.speakersStatus(status);
+    }
 }

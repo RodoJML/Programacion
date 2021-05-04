@@ -52,6 +52,10 @@ public class EquipoSonidoControlador
                 {
                     view.viewSetAlarm();
                 }
+                case 8:
+                {
+                    view.setSpeakersStatus();
+                }    
             }
         }
     }

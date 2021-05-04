@@ -125,5 +125,10 @@ public class EquipoSonido
         clock.setAlarm(hour, minutes);
     }
     
-    
+    public void speakersStatus(boolean status)
+    {
+        RS.status = status;
+        LS.status = status;
+        SW.status = status;
+    }
 }
