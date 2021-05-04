@@ -15,7 +15,6 @@ public class EquipoSonido
     RightSpeaker RS;
     LeftSpeaker LS;
     Subwoofer SW;
-    String audio;
     Reloj clock;
     boolean playlistMode;
     boolean radioMode;
