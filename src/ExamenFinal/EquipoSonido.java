@@ -16,6 +16,9 @@ public class EquipoSonido
     LeftSpeaker LS;
     Subwoofer SW;
     String audio;
+    Reloj clock;
+    boolean playlistMode;
+    boolean radioMode;
     
     public EquipoSonido()
     {
@@ -29,6 +32,10 @@ public class EquipoSonido
         this.RS = new RightSpeaker();
         this.LS = new LeftSpeaker();
         this.SW = new Subwoofer();
+        this.clock = new Reloj();
+        
+        playlistMode = true;
+        radioMode = false;
     }
     
     public void addAudioToPlaylist(String mp3, int index)
@@ -86,15 +93,34 @@ public class EquipoSonido
     
     public void sendAudio(Audio mp3)
     {
-        RS.sonar(mp3);
-        LS.sonar(mp3);
-        SW.sonar(mp3);
+        this.RS.sonar(mp3);
+        this.LS.sonar(mp3);
+        this.SW.sonar(mp3);
     }
     
     public void setVolume(int rsVol, int lsVol, int swVol)
     {
-        RS.setVolumeLevel(rsVol);
-        LS.setVolumeLevel(lsVol);
-        SW.setVolumeLevel(swVol);
+        this.RS.setVolumeLevel(rsVol);
+        this.LS.setVolumeLevel(lsVol);
+        this.SW.setVolumeLevel(swVol);
     }
+    
+    public void setStereoMode(boolean radio)
+    {
+        if(radio == true)
+        {
+            this.playlistMode = false;
+            this.radioMode = true;
+        }
+        else
+            this.playlistMode = true;
+            this.radioMode = false;
+    }
+    
+    public void autoPower(int hour, int minutes)
+    {
+        clock.setAlarm(hour, minutes);
+    }
+    
+    
 }

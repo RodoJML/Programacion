@@ -11,5 +11,34 @@ package ExamenFinal;
  */
 public class Reloj
 {
+    int hora;
+    int minutos;
+    
+    public void setAlarm(int horas, int minutos)
+    {
+        this.hora = horas;
+        this.minutos = minutos;
+    }
+
+    public int getHora()
+    {
+        return hora;
+    }
+
+    public void setHora(int hora)
+    {
+        this.hora = hora;
+    }
+
+    public int getMinutos()
+    {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos)
+    {
+        this.minutos = minutos;
+    }
+    
     
 }

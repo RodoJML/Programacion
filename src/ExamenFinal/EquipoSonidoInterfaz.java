@@ -28,12 +28,12 @@ public class EquipoSonidoInterfaz
                 + "\n"
                 + "\n0 - Add new audio to playlist"
                 + "\n1 - Delete an audio from playlist"
-                + "\n1 - View your playlist"
-                + "\n2 - Listen to your playlist in order"
-                + "\n3 - Listen to your playlist randomly"
-                + "\n4 - Turn up / down the volume"
-                + "\n5 - Turn ON radio"
-                + "\n6 - Turn ON stereo at a certain time"
+                + "\n2 - View your playlist"
+                + "\n3 - Listen to your playlist in order"
+                + "\n4 - Listen to your playlist randomly"
+                + "\n5 - Turn up / down the volume"
+                + "\n6 - Set Radio (ON / OFF)"
+                + "\n7 - Turn ON stereo at a certain time"
                 + "\n\nPlease select an option: ");
         
         return option = read.nextInt();
@@ -101,5 +101,30 @@ public class EquipoSonidoInterfaz
         while(swVol > 10);
         
         model.setVolume(rsVol, lsVol, swVol);
+    }
+    
+    public void viewRadioMode()
+    {
+        System.out.print("Turn Radio ON (True or False): ");
+        boolean radioMode = read.nextBoolean();
+        model.setStereoMode(radioMode);
+        
+        if(radioMode == true)
+        {
+            System.out.print("Radio ON || Playlist OFF");
+        }
+        else
+            System.out.print("Radio OFF || Playlist ON");
+    }
+    
+    public void viewSetAlarm()
+    {
+        System.out.print("Please indicate the hour to turn your device ON: ");
+        int hour = read.nextInt();
+        System.out.print("Please indicate the minute your device will turn ON: ");
+        int minute = read.nextInt();
+        model.autoPower(hour, minute);
+        
+        System.out.print("Your device will turn ON at " + model.clock.getHora() + " : " + model.clock.getMinutos());
     }
 }
