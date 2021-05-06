@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author rodo
+ * @author Rodolfo Meneses Leal 20200112770
  */
 public class EquipoSonidoInterfaz
 {
